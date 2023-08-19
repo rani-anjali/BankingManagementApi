@@ -37,6 +37,13 @@ public class BankController {
         log.info("End of BankController.getBanks");
         return new ResponseEntity<>(bankTOS,HttpStatus.OK);
     }
+
+    @GetMapping("/test")
+    public String test(){
+
+        return "test successfull";
+
+    }
     @GetMapping("/{code}")
     public ResponseEntity<BankTO> getBankById(@PathVariable("code") int bankCode){
         log.info("Inside bankController.getBankByName");
