@@ -1,0 +1,35 @@
+server:
+  port: 9090
+
+logging:
+  file:
+    name: spring_app.log
+  logback:
+    rollingpolicy:
+      file-name-pattern: spring_app-%d{yyyy-MM-dd}.%i.log
+  level:
+    org:
+      springframework: info
+    com:
+      bankingmanagement: debug
+
+#  pattern:
+#    file: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/bankingmanagement
+    username: root
+    password: root
+  jpa:
+    Show-sql: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info,health,metrics,loggers,beans,mappings,threaddump,env
+  endpoint:
+    health:
+      show-details: always
+
+
